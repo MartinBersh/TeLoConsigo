@@ -1,16 +1,66 @@
-# This is a sample Python script.
-
-# Press Mayús+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+from CustomerType import CustomerType
+from User import User
+from UserServices import UserServices
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+def printMenu():
+    print("Menu");
+    print("1. Crear nuevo usuario");
+    print("2. Buscar usuario por id");
+    print("3. Actualizar infromación de usuario");
+    print("4. Eliminar usuario")
+    print("5. Salir");
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+def main():
+    userServices = UserServices()
+
+
+    while True:
+        printMenu();
+        option = input("Ingrese la opción deseada: ");
+
+        if option == "1":
+            print("\nCrear nuevo Usuario:")
+            newUser = userServices.createUser()
+            if newUser:
+                print("Usuario creado con éxito.")
+
+        elif option == "2":
+            id = input("\nIngrese el id del usuario para buscar: ")
+            userFound = userServices.findById(id);
+            if userFound:
+                print("\nUsuario:")
+                print(userFound)
+            else:
+                print("\nUsuario no encontrado.")
+
+        elif option == "3":
+            id = input("Ingrese el ID del usuario a actualizar: ")
+            newUser = {}
+            newUser["name"] = input("Nuevo nombre: ")
+            newUser["identification"] = input("Nueva identificación: ")
+            newUser["address"] = input("Nueva dirección: ")
+            newUser["phone"] = input("Nuevo teléfono: ")
+            newUser["email"] = input("Nuevo correo electrónico: ")
+            newUser["customerType"] = input("Nuevo tipo de cliente"
+                                            " (1 para Comprador Ocasional, 2 para Comprador Mayorista): ")
+
+            userServices.upgradeUser(id, newUser)
+
+        elif option == "4":
+            id = input("Ingrese el id del usuario a eliminar: ")
+            userServices.deleteUser(id)
+
+        elif option == "5":
+            print("Saliendo del programa")
+            break
+
+
+
+        else:
+            print("Opción inválida")
+
+
+if __name__ == "__main__":
+    main()
