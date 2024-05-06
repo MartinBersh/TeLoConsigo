@@ -1,8 +1,7 @@
-from CustomerType import CustomerType
-
-from EmailNotification import EmailNotification
-from ScreenNotification import ScreenNotification
-from User import User
+from entities.enums.CustomerType import CustomerType
+from services.ScreenNotification import ScreenNotification
+from entities.User import User
+from services.EmailNotification import EmailNotification
 
 
 class UserServices:

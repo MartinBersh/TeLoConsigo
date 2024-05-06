@@ -1,6 +1,6 @@
 from abc import ABC
 
-from INotification import INotification
+from services.INotification import INotification
 
 
 class EmailNotification(INotification, ABC):

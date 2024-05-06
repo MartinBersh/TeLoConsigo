@@ -10,5 +10,6 @@ class User:
         self.customerType = customerType;
 
     def __str__(self):
-        return f"ID: {self.id}, Nombre: {self.name}, Email: {self.email}, Dirección: {self.address}, Teléfono: {self.phoneNumber}, Tipo de Cliente: {self.customerType}"
+        return f"ID: {self.id}, Nombre: {self.name}, Email: {self.email}, Dirección: {self.address}, " \
+               f"Teléfono: {self.phoneNumber}, Tipo de Cliente: {self.customerType}"
 

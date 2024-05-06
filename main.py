@@ -1,6 +1,4 @@
-from CustomerType import CustomerType
-from User import User
-from UserServices import UserServices
+from services.UserServices import UserServices
 
 
 def printMenu():
